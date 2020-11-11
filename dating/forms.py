@@ -9,7 +9,7 @@ from dating.models import User
 class RegistrationForm(FlaskForm):
 	username = StringField('Username', validators = [DataRequired(), Length(min=2, max=20), Regexp(r'^[\w.-_.]+$', message='No Spaces. Use "-" or "_" or "." instead')]) 
 	department = StringField('Department', validators=[DataRequired()])
-	age = DateField('birthday', format='%d-%m-%Y', validators=[DataRequired()])
+	age = DateField('birthday', format='%m-%d-%Y', validators=[DataRequired()])
 	gender = RadioField('Gender', choices=[('male','male'),('female','female')])
 	password = PasswordField('Password', validators = [DataRequired()])
 	confirm_password = PasswordField('Confirm Password', validators = [DataRequired(), EqualTo('password')])
