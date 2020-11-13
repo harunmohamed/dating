@@ -61,7 +61,7 @@
           <section class="cardi scroll mb-2">
             {% for user in users if user != current_user and user.is_following(current_user) and current_user.is_following(user) %}
             <div class="others">
-            <div class="card--content"><a href="{{ url_for('message',recipient=user.username) }}"><img src="{{ url_for('static', filename='profile_pics/' + user.dp) }}" alt=""></a>
+            <div class="card--content"><a href="{{ url_for('message',recipient=user.username) }}"><img src="{{ url_for('static', filename='profile_pics/' + user.dp) }}" loading="lazy" alt=""></a>
             </div>
             <small style="font-size:15px;color:#f8f8f2;padding-left:15px">
             <code style="color:#fff;">{{user.username.lower()}}</code>
@@ -82,7 +82,7 @@
    {% for message in messages_received %}
     <div class="post mb-2 d-none d-lg-block">
       <header style="padding:0;">
-          <img src="{{ url_for('static', filename='profile_pics/' + message.author.dp) }}" alt="profile pic" class="profile-thumbnail">
+          <img src="{{ url_for('static', filename='profile_pics/' + message.author.dp) }}" alt="profile pic" class="profile-thumbnail" loading="lazy">
           <div class="profile-name">
             <h3 data-toggle="popover"><a href="{{url_for('user_posts', username=message.author.username)}}" style="color:#fff;">{{message.author.username}}
              {% if message.author.username in ["harun" , "bambi"] %}<img src="{{ url_for('static', filename='resources/' + 'verified.svg') }}" style="width:17px;height:17px;margin-left: -5px;">{% endif %}
@@ -117,7 +117,7 @@
         {% for person in recent_chats %}
         <a href="{{url_for('message', recipient=person.username)}}" style="text-decoration:none;">
         <header class="mb-2">
-        <img src="{{ url_for('static', filename='profile_pics/' + person.dp) }}" alt="default profile" class="profile-thumbnail">
+        <img src="{{ url_for('static', filename='profile_pics/' + person.dp) }}" alt="default profile" class="profile-thumbnail" loading="lazy">
         <div class="profile-name">
           <h3>{{person.username}}</h3>
           <span class="d-none">
@@ -142,24 +142,5 @@
       
 </div>
 
-<script src="https://code.jquery.com/jquery-3.4.1.min.js"
-  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
-  crossorigin="anonymous"></script>
-
-  <script>
-     $('.love').click(function(){
-      $(this).toggleClass('liked');
-    });
-  </script>
-
-  <script>
-$(document).ready(function(){
-  $('[data-toggle="popover"]').popover({
-    trigger: 'hover'
-  }); 
-});
-</script>
-
-<script id="dsq-count-scr" src="//baambi.disqus.com/count.js" async></script>
 
 {% endblock content %}
