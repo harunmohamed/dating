@@ -34,7 +34,7 @@
         <img src="{{ url_for('static', filename='profile_pics/' + user.dp) }}" alt="default profile" class="profile-thumbnail">
         <div class="profile-name">
           <h3>{{user.username}}</h3>
-          <small>⏰ last seen {{ moment(user.last_seen).fromNow() }}</small>
+          <code class="text-muted">🕔 last seen {{ moment(user.last_seen).fromNow() }}</code>
         </div>
       </header>
     </a>
@@ -80,7 +80,7 @@
           {% if user.bio %}<code style="color:#fff;"> {{user.bio}} </code> <br> {% endif %}
 
           {% if user.country %} <small>🌍 From {{user.country}}</small> {% endif %}
-          <small class="pl-3">😎 studies {{user.department}}</small>
+          <small class="pl-3">🏅 Studies {{user.department}}</small>
           <br>
 
           {% if user.instagram and user.instagram != "instagram"  %}
@@ -90,9 +90,7 @@
           <a href="https://www.snapchat.com/add/{{user.snapchat}}"><img src="{{ url_for('static', filename='resources/' + 'snapchat.svg') }}" style="width:35px;height:35px;"></a>
           {% endif %}
 
-          <div style="display:flex;">
-            <p><a class="btn btn-sm btn-primary mt-2 ml-1 px-4" href="{{ url_for('follow', username=user.username) }}">match</a></p>
-          </div><!--seller div-->
+          <a class="btn btn-sm btn-block btn-warning mt-2 ml-1 px-4" href="{{ url_for('follow', username=user.username) }}" style="border-radius:5px;background:#F5CB5C;color:#000;font-weight:500;border:none;">Match</a>
 
         </div>
       </div><!--card-->
