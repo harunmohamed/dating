@@ -247,7 +247,7 @@ section .btn {
         </h2>
 
         {% if current_user.is_authenticated %}
-        <div class="dropdown" style="margin:auto 10px;">
+        <div class="dropdown d-none d-lg-block" style="margin:auto 10px;">
               <button class="btn  btn-sm btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="padding-left:2px;">
               </button>
               <div class="dropdown-menu mt-2" aria-labelledby="dropdownMenuButton" style="cursor:pointer;padding:0;background:#212121;color:#fff;margin-left:-80px;">
@@ -294,7 +294,7 @@ section .btn {
             <br>
 
             {% if user.username == 'harun' %}
-              <code>
+              <code class="d-none d-lg-block">
               <a class="badge badge-warning" style="color:#000;">💦Founder, Bambi</a> 
               <a class="badge badge-primary" style="color:#000;">💻code</a> 
               <a class="badge badge-danger" style="color:#000;">🚊travel</a> 
@@ -303,6 +303,27 @@ section .btn {
               </code>
             {% endif %}
         </p>
+
+        {% if current_user.is_authenticated %}
+        <div class="d-block d-lg-none">
+          <code style="color:#000;font-size:18px;">
+          <!-- if current_user is not following user -->
+          {% if user != current_user and not current_user.is_following(user) %}
+            <a class="badge badge-info p-2" href="{{ url_for('follow', username=user.username) }}" style="color:#000;">🔅 Follow</a>
+          {% endif %}
+          <!-- if current_user is user -->
+          {% if user == current_user %}
+            <a class="badge badge-info p-2" href="{{ url_for('messages') }}" style="color:#000;">📬 Inbox <span id="message_count" class="badge badge-warning" style="display:{% if new_messages %}inline{% else %}none{% endif %};">{{ new_messages }}</span></a>
+            <a class="badge badge-info p-2" data-toggle="modal" data-target="#info">⚜ Edit Profile</a>
+          {% endif %}
+          <!-- if current_user is following user -->
+          {% if current_user != user and current_user.is_following(user) %}
+            <a class="badge badge-info p-2" href="{{ url_for('message',recipient=user.username) }}" style="color:#000;">📧 Message</a>
+            <a class="badge badge-danger p-2" href="{{ url_for('unfollow', username=user.username) }}" style="color:#000;">👽 Unfollow</a>
+          {% endif %}
+          </code>
+        </div>
+        {% endif %}
 
 
 
@@ -363,11 +384,21 @@ section .btn {
 
 
     <div class="col-lg-6">
-     
-      <div class="row mt-3 ml-1 mr-1">
-        <img src="{{ url_for('static', filename='profile_pics/' + user.dp) }}" alt="dp" class="profile-thumbnail" style="width:34%;max-height:400px;margin-right:1%;border-radius:8px;">
+
+      <!-- Large Screen Image  Layout -->
+      <div class="row mt-3 ml-1 mr-1 d-none d-lg-block">
+        <img src="{{ url_for('static', filename='profile_pics/' + user.dp) }}" alt="dp" class="profile-thumbnail" style="width:32%;max-height:400px;margin-right:1%;border-radius:8px;">
         <img src="{{ url_for('static', filename='profile_pics/' + user.dp2) }}" alt="dp2" class="profile-thumbnail" style="width:32%;max-height:400px;margin-right:1%;border-radius:8px;">
         <img src="{{ url_for('static', filename='profile_pics/' + user.dp3) }}" alt="dp3" class="profile-thumbnail" style="width:32%;max-height:400px;border-radius:8px;">
+      </div>
+
+      <!-- Small Screen Image  Layout -->
+      <div class="card d-block d-lg-none" style="border:1px solid #212121;border-radius:5px;">
+        <div style="display:flex;overflow-x: auto">
+          <img class="card-img-top img-fluid" src="{{ url_for('static', filename='profile_pics/' + user.dp) }}" alt="Card image cap" style="min-width:100%;max-height:400px;border-right:1px solid #000;">
+          <img class="card-img-top img-fluid" src="{{ url_for('static', filename='profile_pics/' + user.dp2) }}" alt="Card image cap" style="min-width:100%;max-height:400px;border-right:1px solid #000;">
+          <img class="card-img-top img-fluid" src="{{ url_for('static', filename='profile_pics/' + user.dp3) }}" alt="Card image cap" style="min-width:100%;max-height:400px;">
+        </div>
       </div>
 
       {% if current_user == user %}

@@ -65,7 +65,7 @@
       {% if user %}
       <div class="card" style="border:1px solid #212121;border-radius:5px;">
         <a href="{{ url_for('user_posts',username=user.username) }}" style="text-decoration:none;">
-        <div style="filter:blur(8px);display:flex;overflow-x: auto">
+        <div style="display:flex;overflow-x: auto">
           <img class="card-img-top img-fluid" src="{{ url_for('static', filename='profile_pics/' + user.dp) }}" alt="Card image cap" style="min-width:100%;max-height:400px;border-right:1px solid #000;">
           <img class="card-img-top img-fluid" src="{{ url_for('static', filename='profile_pics/' + user.dp2) }}" alt="Card image cap" style="min-width:100%;max-height:400px;border-right:1px solid #000;">
           <img class="card-img-top img-fluid" src="{{ url_for('static', filename='profile_pics/' + user.dp3) }}" alt="Card image cap" style="min-width:100%;max-height:400px;">
