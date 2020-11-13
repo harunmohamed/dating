@@ -57,7 +57,7 @@
 
 
 		<div class="col-lg-6 offset-lg-3">
-			
+			<h2>Update Account Info</h2>
 			<div class="post">
 				 {% with messages = get_flashed_messages(with_categories=true) %}
 		    	{% if messages %}
@@ -78,8 +78,10 @@
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
               <!-- Bio -->
+              <div class="mt-2" style="background:#212121;padding:;font-size:20px;display:block;border-radius:5px;">
+	          <a data-toggle="collapse" href="#bio" role="button" aria-expanded="false" aria-controls="bio" style="text-decoration:none;color:#818181;">😇 {{ form.bio.label(class="form-control-label") }} ⤵</a>
+              <div class="collapse" id="bio">
               <div class="form-group">
-                <a style="text-decoration:none;font-size:20px;color:#818181;">😇 {{ form.bio.label(class="form-control-label") }}</a>
                 {% if form.bio.errors %}
                 {{ form.bio(class="form-control form-control-lg is-invalid") }}
                 <div class="invalid-feedback">
@@ -91,6 +93,8 @@
                 {{ form.bio(class="form-control form-control-lg") }}
                 {% endif %}
               </div>
+          </div>
+      </div>
 
               <!-- Profile Images -->
               <div class="mb-2" style="background:#212121;font-size:20px;display:block;border-radius:5px;">
