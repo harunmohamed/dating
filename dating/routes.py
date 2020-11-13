@@ -271,6 +271,25 @@ def unfollow(username):
 	flash('💔 You are not following {}.'.format(username.title()), 'info')
 	return redirect(url_for('user_posts', username=username))
 
+@app.route('/account/delete')
+@login_required
+def delete_account():
+	db.session.delete(current_user)
+	db.session.commit()
+	flash('Your account has been successfully deleted.', 'success')
+	return redirect(url_for('home'))
+
+@app.route('/admin/delete/<string:username>')
+@login_required
+def admin_delete_account(username):
+	username = username.lower()
+	user = User.query.filter_by(username=username).first()
+	if current_user.username == 'harun':
+		db.session.delete(user)
+		db.session.commit()
+		flash('Account Successfully deleted by Admin.', 'success')
+	return redirect(url_for('home', user=user))
+
 
 def send_reset_email(user):
 	token = user.get_reset_token()
