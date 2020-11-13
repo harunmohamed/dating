@@ -16,19 +16,16 @@
     <a href="https://bambi.app/m/harun">Report Bug</a>
     ·
     <a href="https://bambi.app/m/harun">Request Feature</a>
+    <br>
+    [![Contributors][contributors-shield]][contributors-url]
+    [![Forks][forks-shield]][forks-url]
+    [![Stargazers][stars-shield]][stars-url]
+    [![Issues][issues-shield]][issues-url]
+    [![MIT License][license-shield]][license-url]
+    [![LinkedIn][linkedin-shield]][linkedin-url]
   </p>
 </p>
 
-<p align="center">
-
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
-
-</p>
 
 
 
