@@ -604,7 +604,7 @@ section .btn {
             <div class="card" style="color:#000;">
             <img class="card-img-top" src="{{ dp }}" alt="Card image cap" style="height:300px;">
             <div class="card-body">
-               <div class="content-section">
+          <div class="content-section">
           {% if current_user.is_authenticated %}
           <form method="POST" action="" enctype="multipart/form-data">
             {{ form.hidden_tag() }}
@@ -625,7 +625,7 @@ section .btn {
               </div>
 
               <!-- Profile Images -->
-              <p><a class="btn btn-outline-dark" data-toggle="collapse" href="#dps" role="button" aria-expanded="false" aria-controls="dps">Update Profile Images</a></p>
+              <p><a class="btn btn-outline-dark" data-toggle="collapse" href="#dps" role="button" aria-expanded="false" aria-controls="dps">Update Profile Images ⤵</a></p>
               <div class="collapse" id="dps">
                 <div class="card card-body mb-2">
                   <p>Keep your profile fresh. Upload images with you face to make more matches!</p>
@@ -657,7 +657,7 @@ section .btn {
               </div>
 
               <!-- Username and Socials-->
-              <p><a class="btn btn-outline-dark" data-toggle="collapse" href="#names" role="button" aria-expanded="false" aria-controls="names">Update Username and Socials</a></p>
+              <p><a class="btn btn-outline-dark" data-toggle="collapse" href="#names" role="button" aria-expanded="false" aria-controls="names">Update Username and Socials ⤵</a></p>
               <div class="collapse" id="names">
                 <div class="card card-body mb-2">
               <div class="form-group">
@@ -674,8 +674,7 @@ section .btn {
                 {% endif %}
               </div>
               <div class="form-group">
-                <div class="row">
-                  <div class="col">
+                    <!-- Snapchat -->
                     {{ form.snapchat.label(class="form-control-label") }}
                     {% if form.snapchat.errors %}
                     {{ form.snapchat(class="form-control form-control-lg is-invalid") }}
@@ -687,8 +686,8 @@ section .btn {
                     {% else %}
                     {{ form.snapchat(class="form-control form-control-lg") }}
                     {% endif %}
-                  </div>
-                  <div class="col">
+
+                    <!-- Intagram -->
                     {{ form.instagram.label(class="form-control-label") }}
                     {% if form.instagram.errors %}
                     {{ form.instagram(class="form-control form-control-lg is-invalid") }}
@@ -700,14 +699,12 @@ section .btn {
                     {% else %}
                     {{ form.instagram(class="form-control form-control-lg") }}
                     {% endif %}
-                  </div>
-                </div>
               </div>
             </div>
           </div>
 
               <!-- School Deets -->
-              <p><a class="btn btn-outline-dark" data-toggle="collapse" href="#deets" role="button" aria-expanded="false" aria-controls="deets">Update School Details</a></p>
+              <p><a class="btn btn-outline-dark" data-toggle="collapse" href="#deets" role="button" aria-expanded="false" aria-controls="deets">Update School Details ⤵</a></p>
               <div class="collapse" id="deets">
                 <div class="card card-body mb-2">
                   <div class="form-group">
@@ -740,7 +737,7 @@ section .btn {
               </div>
 
               <!-- Country and Birthday -->
-              <p><a class="btn btn-outline-dark" data-toggle="collapse" href="#country" role="button" aria-expanded="false" aria-controls="country">Update Country and Birthday</a></p>
+              <p><a class="btn btn-outline-dark" data-toggle="collapse" href="#country" role="button" aria-expanded="false" aria-controls="country">Update Country and Birthday ⤵</a></p>
               <div class="collapse" id="country">
                 <div class="card card-body mb-2">
               <div class="form-group">

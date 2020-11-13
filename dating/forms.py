@@ -37,7 +37,7 @@ class UpdateAccountForm(FlaskForm):
 	department = StringField('Department', validators=[DataRequired()])
 	student_number = StringField('Student Number', validators=[])
 	country = StringField('Country', validators=[DataRequired()])
-	age = DateField('birthday', format='%d-%m-%Y', validators=[DataRequired()])
+	age = DateField('Birthday', format='%d-%m-%Y', validators=[DataRequired()])
 	snapchat = StringField('Snapchat')
 	instagram = StringField('Instagram')
 	bio = PageDownField('Bio')
