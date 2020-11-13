@@ -269,11 +269,11 @@
             </fieldset>
           </form>
           {% endif %}
-          <div class="mb-3" style="background:#212121;padding:;font-size:20px;display:block;">
+          <div class="mb-2" style="background:#212121;padding:;font-size:20px;display:block;">
 	        <a class="text-danger" data-toggle="collapse" href="#delete_account" role="button" aria-expanded="false" aria-controls="delete_account" style="text-decoration:none;color:">🤖 Danger: Delete Account</a>
 	        <div class="collapse" id="delete_account">
-	           <span>😔 We are sad to see you go. You look forward to having to back sometime later</span>
-              <a class="btn btn-block btn-danger" href="{{url_for('delete_account')}}">Delete Anyway</a>
+	           <span class="text-muted">😔 We are sad to see you go. We look forward to having you back in future. We promise to delete all your data the minute you click the delete button.</span>
+              <a class="btn btn-block btn-danger mt-2 mb-4" href="{{url_for('delete_account')}}">Delete Account Permanently</a>
 	        </div>
 	     </div>
        
