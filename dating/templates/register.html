@@ -1,6 +1,21 @@
 {% extends "layout.html" %}
 {% block content %}
   
+<style>
+  .form-control{
+    background: #212121;
+    border: 1px solid #121212;
+    height:60px;
+    color: #f2f3f5;
+  }
+  .form-control:focus{
+    background: #212121;
+    border: 1px solid #121212;
+    height:60px;
+    outline: none;
+    color: #f2f3f5;
+  }
+</style>
 
 <div class="container-fluid">
   <div class="row">
@@ -41,7 +56,7 @@
       <div class="col">
         <div class="input-group">
         <div class="input-group-prepend">
-          <span class="input-group-text" id="basic-addon1">@</span>
+          <span class="input-group-text" id="basic-addon1" style="background:#212121;border:1px solid #121212;color:#f2f3f5;">@</span>
         </div>
         {% if form.username.errors %}
         {{ form.username(placeholder="username", class="form-control form-control is-invalid") }}
@@ -51,7 +66,7 @@
           {% endfor %}
         </div>
         {% else %}
-        {{ form.username(placeholder="username", class="form-control form-control") }}
+        {{ form.username(placeholder="username", class="form-control shadow-none") }}
         {% endif %}
       </div>
       </div>
@@ -65,7 +80,7 @@
           {% endfor %}
         </div>
         {% else %}
-        {{ form.department(placeholder="department", class="form-control form-control") }}
+        {{ form.department(placeholder="department", class="form-control shadow-none") }}
         {% endif %}
       </div>
     </div>
@@ -82,13 +97,13 @@
           {% endfor %}
         </div>
         {% else %}
-        {{ form.age(placeholder="dd-mm-yyyy", class="form-control form-control", type="date") }}
+        {{ form.age(placeholder="dd-mm-yyyy", class="form-control shadow-none", type="date") }}
         {% endif %}
       </div>
     </div>
     <div class="col">
       <div class="dropdown">
-      <button class="btn btn-dark dropdown-toggle text-muted" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:100%;background-color:#fff">
+      <button class="btn btn-dark dropdown-toggle text-muted" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="width:100%;background-color:#212121;height:60px;border:1px solid #121212;">
         gender
       </button>
       <div class="dropdown-menu p-2 pb-3" aria-labelledby="dropdownMenuButton" style="margin-left:-20px;max-height:70px;">
@@ -117,7 +132,7 @@
           {% endfor %}
         </div>
         {% else %}
-        {{ form.password(placeholder="password", class="form-control form-control") }}
+        {{ form.password(placeholder="password", class="form-control shadow-none") }}
         {% endif %}
       </div>
 
@@ -130,7 +145,7 @@
           {% endfor %}
         </div>
         {% else %}
-        {{ form.confirm_password(placeholder="confirm password", class="form-control form-control") }}
+        {{ form.confirm_password(placeholder="confirm password", class="form-control shadow-none") }}
         {% endif %}
       </div>
 

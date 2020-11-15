@@ -41,7 +41,7 @@
 		      <p> 🌍 From <a href="https://www.google.com/maps?q={{current_user.country.title()}}" target="_blank">{{current_user.country.title()}}</a></p>
 		      {% endif %}
 		      <p> 💪 Joined <span>{{ moment(current_user.date_joined).fromNow() }}</span></p>
-		      <small>⏰ Last seen on: {{ moment(current_user.last_seen).format('LLL') }}</small>
+		      <small>🕔 Last seen on: {{ moment(current_user.last_seen).format('LLL') }}</small>
 		    </div>
 		  </div>
 
@@ -272,7 +272,7 @@
           <div class="mb-2" style="background:#212121;padding:;font-size:20px;display:block;">
 	        <a class="text-danger" data-toggle="collapse" href="#delete_account" role="button" aria-expanded="false" aria-controls="delete_account" style="text-decoration:none;color:">🤖 Danger: Delete Account</a>
 	        <div class="collapse" id="delete_account">
-	           <span class="text-muted">😔 We are sad to see you go. We look forward to having you back in future. We promise to delete all your data the minute you click the delete button.</span>
+	           <span class="text-muted">😔 We are sad to see you go. We look forward to having you back in future. We promise to delete all your data the second you click the delete button.</span>
               <a class="btn btn-block btn-danger mt-2 mb-4" href="{{url_for('delete_account')}}">Delete Account Permanently</a>
 	        </div>
 	     </div>
