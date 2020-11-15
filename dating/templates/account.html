@@ -31,16 +31,16 @@
 		    <div class="card-body">
 		      <!--<h5 class="card-title">About</h5>-->
 		       <!--<p> 🎓 Studies at <span>Near East University</span></p>-->
-		      <p> 🏅 Majors in <span>{{current_user.department}}</span></p>
+		      <p> 🏅 Majors in <a href="">{{current_user.department}}</a></p>
 		      {% if current_user.student_number %}
-		      <p> ☂ Student Number: <span>{{current_user.student_number}}</span></p>
+		      <p> ☂ Student Number: <a href="">{{current_user.student_number}}</a></p>
 		      {% endif %}
-		      <p> 🙊 Born <span>{{ moment(current_user.age).fromNow() }}</span></p>
-		      <p> {% if current_user.gender == 'male' %} 👨 {% else %}👩 {% endif %} Gender: <span>{{current_user.gender.title()}}</span></p>
+		      <p> 🙊 Born <a href="">{{ moment(current_user.age).fromNow() }}</a></p>
+		      <p> {% if current_user.gender == 'male' %} 👨 {% else %}👩 {% endif %} Gender: <a href="">{{current_user.gender.title()}}</a></p>
 		      {% if current_user.country %}
 		      <p> 🌍 From <a href="https://www.google.com/maps?q={{current_user.country.title()}}" target="_blank">{{current_user.country.title()}}</a></p>
 		      {% endif %}
-		      <p> 💪 Joined <span>{{ moment(current_user.date_joined).fromNow() }}</span></p>
+		      <p> 💪 Joined <a href="">{{ moment(current_user.date_joined).fromNow() }}</a></p>
 		      <small>🕔 Last seen on: {{ moment(current_user.last_seen).format('LLL') }}</small>
 		    </div>
 		  </div>
