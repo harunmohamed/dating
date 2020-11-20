@@ -1,6 +1,22 @@
 {% extends "layout.html" %}
 {% block content %}
    
+<style>
+  .form-control{
+    background: #383737;
+    border: 1px solid #212121;
+    height:60px;
+    color: #f2f3f5;
+  }
+  .form-control:focus{
+    background: #383737;
+    border: 1px solid #121212;
+    height:60px;
+    outline: none;
+    color: #f2f3f5;
+  }
+</style>
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-3 d-none d-lg-block">
@@ -9,14 +25,7 @@
     </div>
 
     <div class="col-lg-6" style="text-align: center">
-      <div class="post">
-      <!--<header>
-          <img src="{{ image_file }}" alt="{{current_user.email}} profile" class="profile-thumbnail">
-          <div class="profile-name">
-            <h3>{{current_user.email}}</h3>
-            <small>{{current_user.email}}</small>
-          </div>
-        </header>-->
+      <div class="post mt-4">
         {% with messages = get_flashed_messages(with_categories=true) %}
           {% if messages %}
               {% for category , message in messages %}
@@ -36,8 +45,7 @@
             <fieldset class="form-group">
               <legend class="border-bottom mb-2 pb-2">Reset Password</legend>
               <div class="form-group">
-                {{ form.email.label(class="form-control-label") }}
-
+                <!--{{ form.email.label(class="form-control-label") }}-->
                 {% if form.email.errors %}
                 {{ form.email(class="form-control form-control-lg is-invalid") }}
                 <div class="invalid-feedback">
@@ -46,7 +54,7 @@
                   {% endfor %}
                 </div>
                 {% else %}
-                {{ form.email(class="form-control form-control-lg") }}
+                {{ form.email(class="form-control form-control-lg", placeholder="email") }}
                 {% endif %}
               </div>
             </fieldset>
@@ -57,9 +65,8 @@
 
         </div>
     </div>
-    <br>
     </div>
-    <header class="mt-3" style="padding:8px;">
+    <header class="mt-2" style="padding:8px;">
         <img src="{{ url_for('static', filename='resources/' + 'logo.svg') }}" alt="logo" class="profile-thumbnail">
         <div class="profile-name">
           <h3 class="logo">BAMBI</h3>
