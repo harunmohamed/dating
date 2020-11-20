@@ -87,10 +87,10 @@
           <small class="pl-3">🏅 Studies {{user.department}}</small>
           <br>
           {% if user.instagram and user.instagram != "instagram"  %}
-          <a href="https://www.instagram.com/{{user.instagram}}"><img src="{{ url_for('static', filename='resources/' + 'instagram.svg') }}" style="width:40px;height:40px;"></a>
+          <a href="https://www.instagram.com/{{user.instagram}}"><img src="{{ url_for('static', filename='resources/' + 'instagram.png') }}" style="width:40px;height:40px;"></a>
           {% endif %}
           {% if user.snapchat and user.snapchat != "snapchat"  %} 
-          <a href="https://www.snapchat.com/add/{{user.snapchat}}"><img src="{{ url_for('static', filename='resources/' + 'snapchat.svg') }}" style="width:35px;height:35px;"></a>
+          <a href="https://www.snapchat.com/add/{{user.snapchat}}"><img src="{{ url_for('static', filename='resources/' + 'snapchat.png') }}" style="width:35px;height:35px;"></a>
           {% endif %}
 
           <a class="btn btn-sm btn-block btn-primary mt-2 ml-1 px-4" href="{{ url_for('follow', username=user.username) }}" style="border-radius:5px;background:#FE5D8A;color:#fff;font-weight:500;border:none;">Follow</a>
@@ -104,7 +104,7 @@
         </div>
         
         <div class="card-block p-2" style="background:#212121;">
-          <h2 class="card_title">Bambi <img src="{{ url_for('static', filename='resources/' + 'verified.svg') }}" style="width:20px;height:20px;margin-top: -5px;" title="Verified"></h2>
+          <h2 class="card_title">Bambi <img src="{{ url_for('static', filename='resources/' + 'verified.png') }}" style="width:20px;height:20px;margin-top: -5px;" title="Verified"></h2>
           <code style="color:#fff;"> Looks like you are out of people to match with </code> <br>
 
           <small><a href="{{url_for('discover')}}">🔆 See who likes you</a></small>

@@ -7,19 +7,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="Bambi is fun social network for students at Near East University to Match, Chat" />
     <meta property="og:description" content="Bambi Dating is a fun social network for students at Near East University to Match, Chat and Date" />
-    <meta property="og:image" href="{{ url_for('static', filename='resources/' + 'logo.svg') }}" />
+    <meta property="og:image" href="{{ url_for('static', filename='resources/' + 'logo.png') }}" />
     <link rel="canonical" href="http://bambi.app/dating">
     <meta property="og:title" content="Bambi Dating by Harun Mohamed">
     <meta property="og:description" content="Bambi Dating is a fun social network for students at Near East University to Match, Chat and Date">
     <meta property="og:url" content="http://bambi.app/dating">
     <meta property="og:site_name" content="Bambi">
-    <meta property="og:image" content="{{ url_for('static', filename='resources/' + 'logo.svg') }}">
+    <meta property="og:image" content="{{ url_for('static', filename='resources/' + 'logo.png') }}">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:description" content="Bambi Dating is a fun social network for students at Near East University to Match, Chat and Date">
     <meta name="twitter:title" content="Bambi Dating by Harun Mohamed">
     <meta name="twitter:domain" content="Bambi">
     <meta name="twitter:creator" content="@harunnmohamed">
-    <meta name="twitter:image:src" content="{{ url_for('static', filename='resources/' + 'logo.svg') }}">
+    <meta name="twitter:image:src" content="{{ url_for('static', filename='resources/' + 'logo.png') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
     
@@ -41,7 +41,7 @@
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
 
 
-    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='resources/' + 'logo.svg') }}">
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='resources/' + 'logo.png') }}">
     {% if title %}
       <title>Bambi - {{ title }}</title>
     {% else %}
@@ -97,14 +97,14 @@ ul.nav li:last-child a {
 <nav class="navbar navbar-expand-md navbar-dark sticky-top justify-content-center d-none d-lg-block">
    <ul class="nav">
     <li {% if '/home' == request.path %}  class="active" {% endif %}>
-      <a href="{{url_for('home')}}"><img src="{{ url_for('static', filename='resources/' + 'swipe.svg') }}" style="width:30px;height:30px;"></a>
+      <a href="{{url_for('home')}}"><img src="{{ url_for('static', filename='resources/' + 'swipe.png') }}" style="width:30px;height:30px;"></a>
     </li>
     <li {% if '/discover' == request.path %}  class="active" {% endif %}>
-      <a href="{{url_for('discover')}}"><img src="{{ url_for('static', filename='resources/' + 'like.svg') }}" style="width:30px;height:30px;"></a>
+      <a href="{{url_for('discover')}}"><img src="{{ url_for('static', filename='resources/' + 'like.png') }}" style="width:30px;height:30px;"></a>
     </li>
     <li {% if '/messages' == request.path %}  class="active" {% endif %}>
       <a href="{{url_for('messages')}}">
-        <img src="{{ url_for('static', filename='resources/' + 'message.svg') }}" style="width:30px;height:30px;">
+        <img src="{{ url_for('static', filename='resources/' + 'message.png') }}" style="width:30px;height:30px;">
         {% if current_user.is_authenticated %}
         {% set new_messages = current_user.new_messages() %}
         <span id="message_count" class="badge badge-warning"style="visibility: 
@@ -135,15 +135,15 @@ ul.nav li:last-child a {
   <div class="bottom d-block d-sm-none">
 
       <a href="{{url_for('home')}}" {% if '/home' == request.path %}  class="active" {% endif %}>
-        <img src="{{ url_for('static', filename='resources/' + 'swipe.svg') }}" style="width:30px;height:30px;">
+        <img src="{{ url_for('static', filename='resources/' + 'swipe.png') }}" style="width:30px;height:30px;">
       </a>
 
       <a href="{{url_for('discover')}}" {% if '/discover' == request.path %}  class="active" {% endif %}>
-        <img src="{{ url_for('static', filename='resources/' + 'like.svg') }}" style="width:30px;height:30px;">
+        <img src="{{ url_for('static', filename='resources/' + 'like.png') }}" style="width:30px;height:30px;">
       </a>
       
       <a href="{{url_for('messages')}}" {% if '/messages' == request.path %}  class="active" {% endif %}>
-        <img src="{{ url_for('static', filename='resources/' + 'message.svg') }}" style="width:30px;height:30px;">
+        <img src="{{ url_for('static', filename='resources/' + 'message.png') }}" style="width:30px;height:30px;">
       </a>
 
       <a href="{{url_for('user_posts', username=current_user.username)}}">
