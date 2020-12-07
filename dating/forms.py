@@ -41,7 +41,7 @@ class UpdateAccountForm(FlaskForm):
 	snapchat = StringField('Snapchat')
 	instagram = StringField('Instagram')
 	bio = PageDownField('Bio')
-	private = BooleanField('Private?')
+	private = BooleanField('Go Private?')
 	submit = SubmitField('Update')
 
 	def validate_username(self, username):

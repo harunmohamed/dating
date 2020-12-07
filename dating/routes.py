@@ -26,7 +26,7 @@ def home():
 
 		match_with = set()
 		for user in users:
-			if not current_user.is_following(user) and current_user.gender != user.gender:
+			if not current_user.is_following(user) and current_user.gender != user.gender and not user.private:
 				match_with.add(user)
 
 		hour = datetime.now().hour
