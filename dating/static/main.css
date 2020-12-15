@@ -10,8 +10,8 @@ nav{
   letter-spacing: 2px;
 }
 
-small{
-  color: #1e90ff;
+small, a{
+  color: #61f7d4; /* #1e90ff */
 }
 
 ::selection {
