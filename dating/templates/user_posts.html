@@ -260,7 +260,13 @@ section .btn {
                     <a class="dropdown-item" href="{{ url_for('follow', username=user.username) }}" style="border-top:none;">🔅 Follow</a>
                   {% else %}
                     <a class="dropdown-item" href="{{ url_for('message',recipient=user.username) }}" style="border-top:none;">🔏 Message</a>
-                    <a class="dropdown-item" href="{{ url_for('unfollow', username=user.username) }}">👽 Unfollow</a>
+                    <a class="dropdown-item" href="{{ url_for('unfollow', username=user.username) }}">👽 
+                    {% if current_user.is_following(user) and user.is_following(current_user)%}
+                    Unmatch
+                    {% else %}
+                    Unfollow
+                    {% endif %}
+                  </a>
                   {% endif %}
                 {% endif %}
               </div>
@@ -319,7 +325,13 @@ section .btn {
           <!-- if current_user is following user -->
           {% if current_user != user and current_user.is_following(user) %}
             <a class="badge badge-info p-2" href="{{ url_for('message',recipient=user.username) }}" style="color:#000;">📧 Message</a>
-            <a class="badge badge-danger p-2" href="{{ url_for('unfollow', username=user.username) }}" style="color:#000;">👽 Unfollow</a>
+            <a class="badge badge-danger p-2" href="{{ url_for('unfollow', username=user.username) }}" style="color:#000;">👽 
+              {% if current_user.is_following(user) and user.is_following(current_user)%}
+                Unmatch
+              {% else %}
+                Unfollow
+              {% endif %}
+          </a>
           {% endif %}
           </code>
         </div>
@@ -360,7 +372,13 @@ section .btn {
       {% endif %}
       <p> 💪 Joined <span>{{ moment(user.date_joined).fromNow() }}</span></p>
       {% if current_user.is_authenticated and current_user.is_following(user) %}
-      <p class="f">💛 You follow {{user.username.title()}}</p> 
+      <p class="f">💛
+        {% if user.is_following(current_user)%}
+          You matched with {{user.username.title()}}!
+        {% else %}
+          You follow {{user.username.title()}}
+        {% endif %}
+      </p> 
       <p>⏰ Last seen on: <span>{{ moment(user.last_seen).format('LLL') }}</span></p>
       {% endif %}
       {% if user.instagram and user.instagram != "instagram"  %}
