@@ -30,9 +30,9 @@ def home():
 				match_with.add(user)
 
 		hour = datetime.now().hour
-		year = datetime.now().year
+		today = datetime.today()
 		greeting = "Good morning" if 5<=hour<12 else "Good afternoon" if hour<18 else "Good evening"
-		return render_template('swipe.html', title="Match with friends", match_with=match_with, greeting=greeting, year=year, users=users)
+		return render_template('swipe.html', title="Match with friends", match_with=match_with, greeting=greeting, today=today, users=users)
 	else:
 		return render_template('intro.html', title="Intro")
 
@@ -46,9 +46,9 @@ def discover():
 		if user != current_user and not current_user.is_following(user) and user.is_following(current_user) and user.gender != current_user.gender:
 			liked_people.add(user)
 	hour = datetime.now().hour
-	year = datetime.now().year
+	today = datetime.today()
 	greeting = "Good morning" if 5<=hour<12 else "Good afternoon" if hour<18 else "Good evening"
-	return render_template('discover.html', users=users, liked_people=liked_people, greeting=greeting, year=year, title='See who likes you')
+	return render_template('discover.html', users=users, liked_people=liked_people, greeting=greeting, today=today, title='See who likes you')
 
 
 @app.route('/messages')
@@ -270,6 +270,20 @@ def unfollow(username):
 	db.session.commit()
 	flash('💔 You are not following {}.'.format(username.title()), 'info')
 	return redirect(url_for('user_posts', username=username))
+
+@app.route('/admin')
+@login_required
+def admin():
+	users = User.query.all()
+	if current_user.email != "harunmohamed901@gmail.com":
+		return redirect(url_for('home'))
+	total_users = list(user for user in users)
+	male = list(user for user in users if user.gender == 'male')
+	female = list(user for user in users if user.gender == 'female')
+	country = set(user.country for user in users)
+	major = set(user.department for user in users)
+	today = datetime.today()
+	return render_template('admin.html', users=users, total_users=total_users, male=male, female=female, country=country, major=major, today=today)
 
 @app.route('/account/delete')
 @login_required

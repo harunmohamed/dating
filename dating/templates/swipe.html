@@ -76,7 +76,7 @@
         {% endif %}
 
         <div class="card-block p-2" style="background:#212121;">
-          <span style="text-transform:uppercase;font-weight:700;font-size:12px;letter-spacing:1.5px;">{{ year - user.age.year }} • {{ user.gender }}</span> <br>
+          <span style="text-transform:uppercase;font-weight:700;font-size:12px;letter-spacing:1.5px;">{{ today.year - user.age.year - ((today.month, today.day) < (user.age.month, user.age.day)) }} • {{ user.gender }}</span> <br>
 
           <a href="{{url_for('user_posts', username=user.username)}}" style="color:#fff;">
             <span class="card-title" style="font-size:28px;color:#FE5D8A;">{{user.username}}</span> <br>
