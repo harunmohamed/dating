@@ -282,8 +282,8 @@ def admin():
 	female = list(user for user in users if user.gender == 'female')
 	country = set(user.country for user in users)
 	major = set(user.department for user in users)
-	today = datetime.today()
-	return render_template('admin.html', users=users, total_users=total_users, male=male, female=female, country=country, major=major, today=today)
+	year = datetime.now().year
+	return render_template('admin.html', users=users, total_users=total_users, male=male, female=female, country=country, major=major, year=year)
 
 @app.route('/account/delete')
 @login_required
