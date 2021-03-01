@@ -75,7 +75,7 @@
         {% endif %}
 
         <div class="card-block p-2" style="background:#212121;">
-          <span style="text-transform:uppercase;font-weight:700;font-size:12px;letter-spacing:1.5px;color:#F5CB5C;">{{ today.year - user.age.year - ((today.month, today.day) < (user.age.month, user.age.day)) }} • {{ user.gender }}</span> <br>
+          <span style="text-transform:uppercase;font-weight:700;font-size:12px;letter-spacing:1.5px;color:#F5CB5C;">{{ year - user.age.year }} • {{ user.gender }}</span> <br>
 
           {% if user.bio %}<code style="color:#fff;"> {{user.bio}} </code> <br> {% endif %}
 
