@@ -30,7 +30,7 @@ def home():
 				match_with.add(user)
 
 		hour = datetime.now().hour
-		today = datetime.today()
+		today = datetime.now()
 		greeting = "Good morning" if 5<=hour<12 else "Good afternoon" if hour<18 else "Good evening"
 		return render_template('swipe.html', title="Match with friends", match_with=match_with, greeting=greeting, today=today, users=users)
 	else:
@@ -46,7 +46,7 @@ def discover():
 		if user != current_user and not current_user.is_following(user) and user.is_following(current_user) and user.gender != current_user.gender:
 			liked_people.add(user)
 	hour = datetime.now().hour
-	today = datetime.today()
+	today = datetime.now()
 	greeting = "Good morning" if 5<=hour<12 else "Good afternoon" if hour<18 else "Good evening"
 	return render_template('discover.html', users=users, liked_people=liked_people, greeting=greeting, today=today, title='See who likes you')
 
