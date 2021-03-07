@@ -43,10 +43,10 @@ class User(db.Model, UserMixin):
 		backref=db.backref('followers', lazy='dynamic'), lazy='dynamic')
 	messages_sent = db.relationship('Message',
 									foreign_keys='Message.sender_id',
-									backref='author', lazy='dynamic')
+									backref='author', lazy='dynamic', cascade="all, delete-orphan")
 	messages_received = db.relationship('Message',
 										foreign_keys='Message.recipient_id',
-										backref='recipient', lazy='dynamic')
+										backref='recipient', lazy='dynamic', cascade="all, delete-orphan")
 	last_message_read_time = db.Column(db.DateTime)
 
 
